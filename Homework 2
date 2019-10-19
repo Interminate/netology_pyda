@@ -1,0 +1,76 @@
+# Задание №1
+
+geo_logs = [
+{'visit1': ['Москва', 'Россия']},
+{'visit2': ['Дели', 'Индия']},
+{'visit3': ['Владимир', 'Россия']},
+{'visit4': ['Лиссабон', 'Португалия']},
+{'visit5': ['Париж', 'Франция']},
+{'visit6': ['Лиссабон', 'Португалия']},
+{'visit7': ['Тула', 'Россия']},
+{'visit8': ['Тула', 'Россия']},
+{'visit9': ['Курск', 'Россия']},
+{'visit10': ['Архангельск', 'Россия']},
+]
+visits_in_Russia = []
+for country in geo_logs:
+    if 'Россия' in list(country.values())[0]:
+        visits_in_Russia.append(country)
+print(visits_in_Russia)
+
+
+
+
+# Задание №2
+
+sets = []
+ids = {'user1': [213, 213, 213, 15, 213], 'user2': [54, 54, 119, 119, 119], 'user3': [213, 98, 98, 35]}
+for value in ids.values():
+    sets = sets + value
+print (list(set(sets)))
+
+
+
+# Задание №3
+
+queries = [
+'смотреть сериалы онлайн',
+'новости спорта',
+'афиша кино',
+'курс доллара',
+'сериалы этим летом',
+'курс по питону',
+'сериалы про спорт',
+]
+amount_of_words = []
+for query in queries:
+    list_of_words = query.split(' ')
+    amount_of_words.append(len(list_of_words))
+for amount in set(amount_of_words):
+    print(f'{amount} слов - {round(amount_of_words.count(amount)/len(amount_of_words) * 100)}%')
+    
+
+# Задание №4
+
+stream = [
+'2018-01-01,user1,3',
+'2018-01-07,user1,4',
+'2018-03-29,user1,1',
+'2018-04-04,user1,13',
+'2018-01-05,user2,7',
+'2018-06-14,user3,4',
+'2018-07-02,user3,10',
+'2018-03-21,user4,19',
+'2018-03-22,user4,4',
+'2018-04-22,user4,8',
+'2018-05-03,user4,9',
+'2018-05-11,user4,11',
+]
+amount_of_users = []
+amount_of_visits = []
+sum1 = 0
+for x in stream:
+    x = x.split(',')
+    amount_of_users.append(x[1])
+    sum1 += int(x[2])
+print(sum1/len(set(amount_of_users)))
